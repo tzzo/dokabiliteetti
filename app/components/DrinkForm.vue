@@ -10,7 +10,14 @@ const emit = defineEmits<{
   calculated: [result: { pureAlcoholMl: number; pricePerClAlcohol: number; mlPerEuro: number; dokabilityScore: number; price: number; volume: VolumeOption; alcoholPercent: number }]
 }>()
 
-const price = ref<number | null>(null)
+const priceInput = ref('')
+const price = computed(() => {
+  if (!priceInput.value) return null
+  // Handle both comma and dot as decimal separator
+  const sanitized = priceInput.value.replace(',', '.').replace(/[^\d.]/g, '')
+  const parsed = parseFloat(sanitized)
+  return isNaN(parsed) ? null : parsed
+})
 const selectedVolume = ref<VolumeOption | null>(null)
 const alcoholPercent = ref(5.0)
 
@@ -52,11 +59,10 @@ function handleCalculate() {
       <label class="label">{{ t('form.price') }}</label>
       <div class="price-input-wrapper">
         <input
-          v-model.number="price"
-          type="number"
+          v-model="priceInput"
+          type="text"
           inputmode="decimal"
-          step="0.01"
-          min="0"
+          autocomplete="off"
           class="input"
           :placeholder="t('form.pricePlaceholder')"
         >
