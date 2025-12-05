@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
 
+  routeRules: {
+    '/': { prerender: true }
+  },
+
   modules: ['@nuxtjs/i18n', '@vite-pwa/nuxt'],
 
   i18n: {
