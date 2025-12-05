@@ -8,6 +8,8 @@ const { shareElement } = useScreenshot()
 const props = defineProps<{
   pureAlcoholMl: number
   pricePerClAlcohol: number
+  mlPerEuro: number
+  dokabilityScore: number
   price: number
   volume: VolumeOption
   alcoholPercent: number
@@ -46,6 +48,28 @@ function formatNumber(value: number, decimals: number = 2): string {
   <div class="drink-result">
     <div ref="captureRef" class="result-display">
       <div v-if="drinkName" class="result-name">{{ drinkName }}</div>
+
+      <div class="dokability-section">
+        <div class="dokability-label">{{ t('result.dokability') }}</div>
+        <div class="dokability-score">{{ dokabilityScore }}</div>
+        <div class="dokability-scale">
+          <div class="scale-bar">
+            <div class="scale-pointer" :style="{ left: `${dokabilityScore}%` }">
+              <svg width="16" height="10" viewBox="0 0 16 10" fill="currentColor">
+                <path d="M8 10L0 0h16L8 10z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="scale-labels">
+            <span>0</span>
+            <span>100</span>
+          </div>
+        </div>
+        <div class="dokability-sub">{{ formatNumber(mlPerEuro, 1) }} {{ t('units.ml') }}/€</div>
+      </div>
+
+      <div class="result-divider"></div>
+
       <div class="result-label">{{ t('result.pricePerCl') }}</div>
       <div class="result-value">
         <span class="result-number">{{ formatNumber(pricePerClAlcohol) }}</span>
@@ -103,6 +127,77 @@ function formatNumber(value: number, decimals: number = 2): string {
   text-transform: uppercase;
   letter-spacing: 0.02em;
   margin-bottom: var(--space-md);
+}
+
+.dokability-section {
+  margin-bottom: var(--space-lg);
+}
+
+.dokability-label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.dokability-score {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  color: var(--color-primary);
+}
+
+.dokability-scale {
+  margin-top: var(--space-md);
+  width: 100%;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scale-bar {
+  position: relative;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(to right,
+    #ef4444 0%,
+    #f97316 25%,
+    #eab308 50%,
+    #84cc16 75%,
+    #22c55e 100%
+  );
+}
+
+.scale-pointer {
+  position: absolute;
+  top: -2px;
+  transform: translateX(-50%);
+  color: var(--color-text);
+  transition: left 0.3s ease-out;
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-xs);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-muted);
+}
+
+.dokability-sub {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-muted);
+  margin-top: var(--space-md);
+}
+
+.result-divider {
+  height: 2px;
+  background-color: var(--color-border);
+  margin: var(--space-lg) 0;
 }
 
 .result-label {

@@ -43,6 +43,9 @@ async function handleShare() {
         {{ drink.price.toFixed(2) }}€ · {{ drink.alcoholPercent }}%
       </span>
     </div>
+    <div class="drink-score">
+      <span class="score-value">{{ drink.dokabilityScore }}</span>
+    </div>
     <div class="drink-value">
       <span class="drink-price">{{ formatPrice(drink.pricePerClAlcohol) }}</span>
       <span class="drink-unit">€/{{ t('units.cl') }}</span>
@@ -95,7 +98,8 @@ async function handleShare() {
 .drink-item--best .drink-details,
 .drink-item--best .drink-rank,
 .drink-item--best .drink-price,
-.drink-item--best .drink-unit {
+.drink-item--best .drink-unit,
+.drink-item--best .score-value {
   color: white;
 }
 
@@ -128,6 +132,19 @@ async function handleShare() {
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
   color: var(--color-text-muted);
+}
+
+.drink-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+}
+
+.score-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-black);
+  color: var(--color-primary);
 }
 
 .drink-value {

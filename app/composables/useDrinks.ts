@@ -64,7 +64,9 @@ export function useDrinks() {
     volume: VolumeOption,
     alcoholPercent: number,
     pureAlcoholMl: number,
-    pricePerClAlcohol: number
+    pricePerClAlcohol: number,
+    mlPerEuro: number,
+    dokabilityScore: number
   ): Drink {
     const drink: Drink = {
       id: generateId(),
@@ -75,6 +77,8 @@ export function useDrinks() {
       alcoholPercent,
       pureAlcoholMl,
       pricePerClAlcohol,
+      mlPerEuro,
+      dokabilityScore,
       createdAt: new Date()
     }
 

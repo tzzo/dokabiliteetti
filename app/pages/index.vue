@@ -16,6 +16,8 @@ onMounted(() => {
 const currentResult = ref<{
   pureAlcoholMl: number
   pricePerClAlcohol: number
+  mlPerEuro: number
+  dokabilityScore: number
   price: number
   volume: VolumeOption
   alcoholPercent: number
@@ -24,6 +26,8 @@ const currentResult = ref<{
 async function handleCalculated(result: {
   pureAlcoholMl: number
   pricePerClAlcohol: number
+  mlPerEuro: number
+  dokabilityScore: number
   price: number
   volume: VolumeOption
   alcoholPercent: number
@@ -42,7 +46,9 @@ async function handleSave(name: string) {
     currentResult.value.volume,
     currentResult.value.alcoholPercent,
     currentResult.value.pureAlcoholMl,
-    currentResult.value.pricePerClAlcohol
+    currentResult.value.pricePerClAlcohol,
+    currentResult.value.mlPerEuro,
+    currentResult.value.dokabilityScore
   )
   await nextTick()
   listRef.value?.$el?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -81,6 +87,8 @@ async function handleSave(name: string) {
           ref="resultRef"
           :pure-alcohol-ml="currentResult.pureAlcoholMl"
           :price-per-cl-alcohol="currentResult.pricePerClAlcohol"
+          :ml-per-euro="currentResult.mlPerEuro"
+          :dokability-score="currentResult.dokabilityScore"
           :price="currentResult.price"
           :volume="currentResult.volume"
           :alcohol-percent="currentResult.alcoholPercent"

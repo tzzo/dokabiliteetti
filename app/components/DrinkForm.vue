@@ -6,7 +6,7 @@ const { t } = useI18n()
 const { calculate } = useAlcoholCalculator()
 
 const emit = defineEmits<{
-  calculated: [result: { pureAlcoholMl: number; pricePerClAlcohol: number; price: number; volume: VolumeOption; alcoholPercent: number }]
+  calculated: [result: { pureAlcoholMl: number; pricePerClAlcohol: number; mlPerEuro: number; dokabilityScore: number; price: number; volume: VolumeOption; alcoholPercent: number }]
 }>()
 
 const price = ref<number | null>(null)
@@ -30,6 +30,8 @@ function handleCalculate() {
   emit('calculated', {
     pureAlcoholMl: result.pureAlcoholMl,
     pricePerClAlcohol: result.pricePerClAlcohol,
+    mlPerEuro: result.mlPerEuro,
+    dokabilityScore: result.dokabilityScore,
     price: price.value,
     volume: selectedVolume.value,
     alcoholPercent: alcoholPercent.value

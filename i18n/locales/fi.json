@@ -12,6 +12,7 @@
   },
   "result": {
     "title": "Tulos",
+    "dokability": "Dokabiliteetti",
     "pureAlcohol": "Puhdas alkoholi",
     "pricePerCl": "Hinta per cl alkoholia",
     "name": "Nimi",

@@ -9,6 +9,8 @@ export interface Drink {
   alcoholPercent: number
   pureAlcoholMl: number
   pricePerClAlcohol: number
+  mlPerEuro: number
+  dokabilityScore: number
   createdAt: Date
 }
 

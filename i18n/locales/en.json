@@ -12,6 +12,7 @@
   },
   "result": {
     "title": "Result",
+    "dokability": "Dokability",
     "pureAlcohol": "Pure alcohol",
     "pricePerCl": "Price per cl of alcohol",
     "name": "Name",
