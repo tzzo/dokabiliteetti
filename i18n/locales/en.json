@@ -1,0 +1,40 @@
+{
+  "app": {
+    "title": "Dokabiliteetti",
+    "tagline": "Calculate drink price-to-alcohol ratio"
+  },
+  "form": {
+    "price": "Price",
+    "pricePlaceholder": "0.00",
+    "volume": "Volume",
+    "alcohol": "Alcohol %",
+    "calculate": "Calculate"
+  },
+  "result": {
+    "title": "Result",
+    "pureAlcohol": "Pure alcohol",
+    "pricePerCl": "Price per cl of alcohol",
+    "name": "Name",
+    "namePlaceholder": "e.g. Karhu III",
+    "save": "Save",
+    "share": "Share"
+  },
+  "list": {
+    "title": "Previous drinks",
+    "empty": "No saved drinks",
+    "clear": "Clear all",
+    "bestValue": "Best value",
+    "shareComparison": "Share comparison",
+    "unnamed": "Unnamed"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "units": {
+    "euro": "EUR",
+    "ml": "ml",
+    "cl": "cl"
+  }
+}

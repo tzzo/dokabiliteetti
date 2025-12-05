@@ -1,0 +1,40 @@
+{
+  "app": {
+    "title": "Dokabiliteetti",
+    "tagline": "Laske juoman hinta-alkoholisuhde"
+  },
+  "form": {
+    "price": "Hinta",
+    "pricePlaceholder": "0.00",
+    "volume": "Tilavuus",
+    "alcohol": "Alkoholi %",
+    "calculate": "Laske"
+  },
+  "result": {
+    "title": "Tulos",
+    "pureAlcohol": "Puhdas alkoholi",
+    "pricePerCl": "Hinta per cl alkoholia",
+    "name": "Nimi",
+    "namePlaceholder": "esim. Karhu III",
+    "save": "Tallenna",
+    "share": "Jaa"
+  },
+  "list": {
+    "title": "Aiemmat juomat",
+    "empty": "Ei tallennettuja juomia",
+    "clear": "Tyhjenna",
+    "bestValue": "Paras arvo",
+    "shareComparison": "Jaa vertailu",
+    "unnamed": "Nimetön"
+  },
+  "theme": {
+    "light": "Vaalea",
+    "dark": "Tumma",
+    "system": "Jarjestelma"
+  },
+  "units": {
+    "euro": "EUR",
+    "ml": "ml",
+    "cl": "cl"
+  }
+}
