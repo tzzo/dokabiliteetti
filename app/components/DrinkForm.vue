@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import type { VolumeOption } from '~/types'
+import { getDefaultAlcoholPercent } from '~/types'
 
 const { t } = useI18n()
 const { calculate } = useAlcoholCalculator()
@@ -12,6 +13,12 @@ const emit = defineEmits<{
 const price = ref<number | null>(null)
 const selectedVolume = ref<VolumeOption | null>(null)
 const alcoholPercent = ref(5.0)
+
+watch(selectedVolume, (newVolume) => {
+  if (newVolume) {
+    alcoholPercent.value = getDefaultAlcoholPercent(newVolume)
+  }
+})
 
 const canCalculate = computed(() => {
   return price.value !== null && price.value > 0 && selectedVolume.value !== null
