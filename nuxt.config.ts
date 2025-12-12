@@ -61,6 +61,11 @@ export default defineNuxtConfig({
           innerHTML: `(function(){try{var c=document.cookie.match(/dokabiliteetti-theme=([^;]+)/);var t=c?c[1]:null;var isDark=t==='dark'||(t==='system'||!t)&&window.matchMedia('(prefers-color-scheme:dark)').matches;if(isDark){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}})()`,
           type: 'text/javascript',
           tagPosition: 'head'
+        },
+        {
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9035175702297085',
+          async: true,
+          crossorigin: 'anonymous'
         }
       ],
       style: [
